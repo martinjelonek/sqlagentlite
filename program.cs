@@ -1,5 +1,4 @@
-﻿using System;
-using SAL;
+﻿using SAL;
 
 class Program
 {
