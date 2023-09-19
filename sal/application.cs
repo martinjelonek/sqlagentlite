@@ -8,7 +8,7 @@ namespace SAL
         public static void Run()
         {
             InitialPrint();
-            ReadInput();
+            while(true) ReadInput();
         }
 
         private static void ReadInput()
@@ -26,7 +26,9 @@ namespace SAL
                 return;
             }
 
-            if(inputText.ToLower()=="exit") ExitCommand.Run();
+            if(inputText.ToLower()=="exit") ExitCommand.Run();  //This command close app if executed
+
+            Console.WriteLine(Msg.UNKNOWN_COMMAND_MESSAGE); //No command found for inputText
         }
 
         private static void InitialPrint()
