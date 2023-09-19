@@ -19,11 +19,14 @@ namespace SAL
             inputText = Console.ReadLine();
             
             if(inputText is null) return;
+            
             if(inputText.ToLower()=="help") 
             {
                 HelpCommand.Run();
                 return;
             }
+
+            if(inputText.ToLower()=="exit") ExitCommand.Run();
         }
 
         private static void InitialPrint()

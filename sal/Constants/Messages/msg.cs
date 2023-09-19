@@ -2,6 +2,7 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
+        public const string EXIT_MESSAGE = "Closing application...";
         public const string USER_INPUT_MESSAGE = "Please enter a command:";
         public const string WELCOME_MESSAGE = @"
 ***************************
