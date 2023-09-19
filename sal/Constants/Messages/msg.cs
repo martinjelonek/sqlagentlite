@@ -2,6 +2,7 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
+        public const string USER_INPUT_MESSAGE = "Please enter a command:";
         public const string WELCOME_MESSAGE = @"
 ***************************
 * SQL AGENT LITE - v. 0.1 *
