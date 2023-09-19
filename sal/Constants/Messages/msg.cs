@@ -24,6 +24,7 @@ List of commands:
     set username    => specify the SQL username for SQL authentication
     set password    => specify the password for SQL authentication
     print log       => display the log file (this file can also be found in the program directory named log.txt)
+    exit            => close the application
 ";
     }
-}    
+}
