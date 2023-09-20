@@ -22,7 +22,6 @@ namespace SAL
         {
             string? inputText;
 
-            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
             inputText = Console.ReadLine();
             
             if(inputText is null) return;
@@ -36,12 +35,14 @@ namespace SAL
             if(inputText.ToLower()=="exit") ExitCommand.Run();  //This command close app if executed
 
             Console.WriteLine(Msg.UNKNOWN_COMMAND_MESSAGE); //No command found for inputText
+            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
 
         private static void InitialPrint()
         {
             Console.WriteLine(Msg.WELCOME_MESSAGE);
             Console.WriteLine(Msg.LIST_OF_COMMANDS);
+            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
     }
 }
