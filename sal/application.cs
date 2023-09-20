@@ -32,6 +32,12 @@ namespace SAL
                 return;
             }
 
+            if(inputText.ToLower()=="show")
+            {
+                ShowCommand.Run();
+                return;
+            }
+
             if(inputText.ToLower()=="exit") ExitCommand.Run();  //This command close app if executed
 
             Console.WriteLine(Msg.UNKNOWN_COMMAND_MESSAGE); //No command found for inputText

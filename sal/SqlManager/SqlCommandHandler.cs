@@ -8,9 +8,12 @@ namespace SAL.SqlManager
     public class SqlCommandHandler
     {
         public string SqlCommand { get; private set; }
+        public bool IsQueryDefault { get; private set; }
 
         public SqlCommandHandler()
         {
+            IsQueryDefault = false;
+
             try
             {
                 string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -26,6 +29,7 @@ namespace SAL.SqlManager
                     Console.WriteLine(Msg.SQL_FILE_NOT_FOUND_WARNING);
                     Console.ResetColor();
                     SqlCommand = Val.DEFAULT_SQL_COMMAND;
+                    IsQueryDefault = true;
                 }
             }
             catch (Exception)
@@ -34,6 +38,7 @@ namespace SAL.SqlManager
                 Console.WriteLine(Msg.SQL_FILE_ERROR_WARNING);
                 Console.ResetColor();
                 SqlCommand = Val.DEFAULT_SQL_COMMAND;
+                IsQueryDefault = true;
             }
         }
     }
