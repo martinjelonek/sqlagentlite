@@ -1,5 +1,6 @@
 using SAL.Commands;
 using SAL.Constants.Messages;
+using SAL.Config;
 
 namespace SAL
 {
@@ -8,7 +9,13 @@ namespace SAL
         public static void Run()
         {
             InitialPrint();
+            Initialize();
             while(true) ReadInput();
+        }
+
+        private static void Initialize()
+        {
+            Config.ConfigFile.InitializeConfig();
         }
 
         private static void ReadInput()
