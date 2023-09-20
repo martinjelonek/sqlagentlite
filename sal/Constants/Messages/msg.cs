@@ -4,7 +4,7 @@ namespace SAL.Constants.Messages
     {
         public const string QUERY_SOURCE_MESSAGE = "Query source: ";
         public const string QUERY_PRINT_START = "*** QUERY START ***";
-        public const string QUERY_PRINT_END = "*** QUERY START ***";
+        public const string QUERY_PRINT_END = "*** QUERY END ***";
         public const string SHOW_DEFAULT_QUERY_WARNING = "THIS IS DEFAULT QUERY!";
         public const string SQL_FILE_ERROR_WARNING = "Warning: There was an issue accessing the 'query.sql' file. Some functionalities might not work as expected.";
         public const string SQL_FILE_NOT_FOUND_WARNING = "Warning: The 'query.sql' file was not found. Some functionalities might not work as expected.";
