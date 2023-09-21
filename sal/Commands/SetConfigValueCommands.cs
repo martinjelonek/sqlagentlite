@@ -1,12 +1,11 @@
 using SAL.Config;
 using SAL.Constants.Messages;
-using SAL.Constants.Values;
 
 namespace SAL.Commands
 {
-    class SetDbAddressCommand
+    class SetConfigValueCommand
     {
-        public static void Run()
+        public static void Run(string paramName)
         {
             Console.WriteLine(Msg.USER_INPUT_VALUE_SET_MESSAGE);
 
@@ -17,7 +16,7 @@ namespace SAL.Commands
             }
             else
             {
-                ConfigManager.AddOrUpdateConfigValue(Val.PARAM_NAME_DB_ADDRESS, value);
+                ConfigManager.AddOrUpdateConfigValue(paramName, value);
             }
             Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }

@@ -1,6 +1,6 @@
 using SAL.Commands;
 using SAL.Constants.Messages;
-using SAL.Config;
+using SAL.Constants.Values;
 
 namespace SAL
 {
@@ -42,11 +42,31 @@ namespace SAL
                 return;
             }
 
+            //TODO: start scheduler command
+
+            //TODO: stop scheduler command
+
             if(inputText=="set db address")
             {
-                SetDbAddressCommand.Run();
+                SetConfigValueCommand.Run(Val.PARAM_NAME_DB_ADDRESS);
                 return;
             }
+
+            if(inputText=="set db name")
+            {
+                SetConfigValueCommand.Run(Val.PARAM_NAME_DB_NAME);
+                return;
+            }
+
+            if(inputText=="set cert trust")
+            {
+                SetConfigValueCommand.Run(Val.PARAM_NAME_CERT_TRUST);
+                return;
+            }
+
+            //TODO: set time command
+
+            //TODO: print log file command
 
             if(inputText=="print config")
             {
@@ -54,7 +74,7 @@ namespace SAL
                 return;
             }
 
-            if(inputText=="exit") ExitCommand.Run();  //This command close app if executed
+            if(inputText=="exit") ExitCommand.Run();  //This command close the app if executed
 
             Console.WriteLine(Msg.UNKNOWN_COMMAND_MESSAGE); //No command found for inputText
             Console.WriteLine(Msg.USER_INPUT_MESSAGE);
