@@ -1,4 +1,6 @@
+using System.IO.Pipes;
 using Microsoft.Data.SqlClient;
+using SAL.Log;
 
 namespace SAL.SqlManager
 {
@@ -17,12 +19,12 @@ namespace SAL.SqlManager
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
+                using (SqlConnection connection = new(_connectionString))
                 {
                     connection.Open();
                     Console.WriteLine("Connected to the database.");
 
-                    using (SqlCommand command = new SqlCommand(_sqlQuery, connection))
+                    using (SqlCommand command = new(_sqlQuery, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -45,13 +47,15 @@ namespace SAL.SqlManager
                         }
                     }
                 }
+                LogManager.AddLogEntry("Query executed successfuly.");
             }
             catch (SqlException ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("An error occurred while connecting to the database or executing the query.");
                 Console.WriteLine("Error details: " + ex.Message);
-                Console.ResetColor(); 
+                Console.ResetColor();
+                LogManager.AddLogEntry("Query execution failed. Error number: " + ex.Number + ".");
             }
         }
     }
