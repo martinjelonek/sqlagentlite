@@ -9,8 +9,8 @@ namespace SAL.Log
             try
             {
                 DateTime currentDateTime = DateTime.Now;
-                string formattedDateTime = currentDateTime.ToString("yyyy-mm-dd hh:mm");
-                string fullEntry = currentDateTime + " " + entry;
+                string formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm");
+                string fullEntry = formattedDateTime + " " + entry + Environment.NewLine;
                 File.AppendAllText(GetLogFileFullPath(), fullEntry);
             }
             catch
