@@ -2,7 +2,8 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
-         public const string CONFIG_FILE_ERROR_AND_VALUE_NOT_ADDED_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Configuration value not added.";
+        public const string CONFIG_FILE_READ_ERROR = "Error: There was an issue accessing the 'config.txt' file.";
+        public const string CONFIG_FILE_ERROR_AND_VALUE_NOT_ADDED_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Configuration value not added.";
         public const string CONFIG_FILE_NOT_FOUND_AND_VALUE_NOT_ADDED_WARNING = "Warning: The 'config.txt' file was not found. Configuration value not added.";
         public const string CONFIG_FILE_ERROR_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Some functionalities might not work as expected.";
         public const string CONFIG_FILE_NOT_CREATED_WARNING = "Warning: Failed to create the configuration file. This may disable some of the application's features.";
@@ -28,14 +29,22 @@ This program executes SQL queries once per day.
         public const string LIST_OF_COMMANDS = @"
 List of commands:
     help            => display this list of commands
-    show            => show the sql query
+    show            => show the sql
     execute         => run the SQL query immediately
     start           => start the scheduler
     stop            => stop the scheduler
     set time        => specify the time to execute the SQL query
+    print config    => display the config file (this file can also be found in the program directory named config.txt)
     print log       => display the log file (this file can also be found in the program directory named log.txt)
     exit            => close the application
 ";
+
+        public static void WriteLineRed(String text)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
 
         public static void WriteLineYellow(String text)
         {
