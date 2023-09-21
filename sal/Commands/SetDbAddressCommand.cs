@@ -8,7 +8,7 @@ namespace SAL.Commands
     {
         public static void Run()
         {
-            Console.WriteLine();
+            Console.WriteLine(Msg.USER_INPUT_VALUE_SET_MESSAGE);
 
             string? value = Console.ReadLine();
             if(value is null || value=="")

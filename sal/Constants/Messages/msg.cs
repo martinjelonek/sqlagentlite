@@ -2,7 +2,7 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
-        public const string USER_INPUT_DB_ADDRESS_MESSAGE = "Please enter a db name:";
+        public const string USER_INPUT_VALUE_SET_MESSAGE = "Please enter a value:";
         public const string NO_VALUE_ENTERED_MESSAGE = "No value entered. Operation aborted.";
         public const string CONFIG_FILE_READ_ERROR = "Error: There was an issue accessing the 'config.txt' file.";
         public const string CONFIG_FILE_ERROR_AND_VALUE_NOT_ADDED_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Configuration value not added.";

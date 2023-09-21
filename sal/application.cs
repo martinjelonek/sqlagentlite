@@ -45,6 +45,7 @@ namespace SAL
             if(inputText=="set db address")
             {
                 SetDbAddressCommand.Run();
+                return;
             }
 
             if(inputText=="print config")

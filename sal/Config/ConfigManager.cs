@@ -91,14 +91,15 @@ namespace SAL.Config
                         found = true;
                         break;
                     }
-                    
-                    if (!found)
-                    {
-                        lines.Add($"{configName} = {value}");
-                    }
-                    
-                    File.WriteAllLines(ConfigFile.GetConfigFileFullPath(), lines);
                 }
+                
+                if (!found)
+                {
+                    lines.Add($"{configName} = {value}");
+                }
+
+                File.WriteAllLines(ConfigFile.GetConfigFileFullPath(), lines);
+                Console.WriteLine("Done.");
             }
             catch
             {
