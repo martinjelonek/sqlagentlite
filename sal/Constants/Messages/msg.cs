@@ -33,6 +33,9 @@ List of commands:
     execute         => run the SQL query immediately
     start           => start the scheduler
     stop            => stop the scheduler
+    set db address  => specify the database address
+    set db name     => specify the database name
+    set cert trust  => specify whether to trust the server certificate
     set time        => specify the time to execute the SQL query
     print config    => display the config file (this file can also be found in the program directory named config.txt)
     print log       => display the log file (this file can also be found in the program directory named log.txt)
