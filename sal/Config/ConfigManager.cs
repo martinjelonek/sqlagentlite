@@ -5,7 +5,7 @@ namespace SAL.Config
 {
     class ConfigManager
     {
-        public static string GetConfigValue(string configName)
+        public static string? GetConfigValue(string configName)
         {
             if(!ConfigFile.DoesConfigExist())
             {
@@ -55,7 +55,7 @@ namespace SAL.Config
 
         public static void AddOrUpdateConfigValue(string configName, string value)
         {
-            List<string> lines = new List<string>();
+            List<string> lines = new ();
             bool found = false;
 
             if(!ConfigFile.DoesConfigExist())
