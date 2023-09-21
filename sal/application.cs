@@ -42,6 +42,11 @@ namespace SAL
                 return;
             }
 
+            if(inputText=="set db address")
+            {
+                SetDbAddressCommand.Run();
+            }
+
             if(inputText=="print config")
             {
                 PrintConfigCommand.Run();
