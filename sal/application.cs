@@ -20,19 +20,29 @@ namespace SAL
 
         private static void ReadInput()
         {
-            string? inputText;
-
-            inputText = Console.ReadLine();
-            
+            string? inputText = Console.ReadLine();
             if(inputText is null) return;
+            inputText = inputText.ToLower();
             
-            if(inputText.ToLower()=="help") 
+            if(inputText=="help") 
             {
                 HelpCommand.Run();
                 return;
             }
 
-            if(inputText.ToLower()=="exit") ExitCommand.Run();  //This command close app if executed
+            if(inputText=="show")
+            {
+                ShowCommand.Run();
+                return;
+            }
+
+            if(inputText=="execute")
+            {
+                ExecuteCommand.Run();
+                return;
+            }
+
+            if(inputText=="exit") ExitCommand.Run();  //This command close app if executed
 
             Console.WriteLine(Msg.UNKNOWN_COMMAND_MESSAGE); //No command found for inputText
             Console.WriteLine(Msg.USER_INPUT_MESSAGE);
