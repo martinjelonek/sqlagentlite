@@ -2,6 +2,8 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
+         public const string CONFIG_FILE_ERROR_AND_VALUE_NOT_ADDED_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Configuration value not added.";
+        public const string CONFIG_FILE_NOT_FOUND_AND_VALUE_NOT_ADDED_WARNING = "Warning: The 'config.txt' file was not found. Configuration value not added.";
         public const string CONFIG_FILE_ERROR_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Some functionalities might not work as expected.";
         public const string CONFIG_FILE_NOT_CREATED_WARNING = "Warning: Failed to create the configuration file. This may disable some of the application's features.";
         public const string CONFIG_FILE_NOT_FOUND_WARNING = "Warning: The 'config.txt' file was not found. Some functionalities might not work as expected.";
@@ -34,5 +36,12 @@ List of commands:
     print log       => display the log file (this file can also be found in the program directory named log.txt)
     exit            => close the application
 ";
+
+        public static void WriteLineYellow(String text)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
     }
 }
