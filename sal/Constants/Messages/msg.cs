@@ -2,6 +2,10 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
+        public const string CONFIG_FILE_ERROR_WARNING = "Warning: There was an issue accessing the 'config.txt' file. Some functionalities might not work as expected.";
+        public const string CONFIG_FILE_NOT_CREATED_WARNING = "Warning: Failed to create the configuration file. This may disable some of the application's features.";
+        public const string CONFIG_FILE_NOT_FOUND_WARNING = "Warning: The 'config.txt' file was not found. Some functionalities might not work as expected.";
+
         public const string QUERY_SOURCE_MESSAGE = "Query source: ";
         public const string QUERY_PRINT_START = "*** QUERY START ***";
         public const string QUERY_PRINT_END = "*** QUERY END ***";

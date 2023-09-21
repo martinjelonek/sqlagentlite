@@ -1,3 +1,4 @@
+using SAL.Constants.Messages;
 using SAL.Constants.Values;
 
 namespace SAL.Config
@@ -9,10 +10,23 @@ namespace SAL.Config
             if(!DoesConfigExist()) CreateConfigFile(Val.DEFAULT_CONFIG_TEXT);
         }
 
+        public static bool DoesConfigExist()
+        {
+            return File.Exists(GetConfigFileFullPath());
+        }
+
+        public static string GetConfigFileFullPath()
+        {
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string configFilePath = Path.Combine(currentDirectory, Val.CONFIG_FILE_NAME);
+
+            return configFilePath;
+        }
+
         private static void CreateConfigFile(string text)
         {
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string configFilePath = Path.Combine(currentDirectory, "config.txt");
+            string configFilePath = Path.Combine(currentDirectory, Val.CONFIG_FILE_NAME);
             
             try
             {
@@ -21,17 +35,9 @@ namespace SAL.Config
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Warning: Failed to create the configuration file. This may disable some of the application's features.");
+                Console.WriteLine(Msg.CONFIG_FILE_NOT_CREATED_WARNING);
                 Console.ResetColor();
             }
-        }
-
-        private static bool DoesConfigExist()
-        {
-            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string configFilePath = Path.Combine(currentDirectory, "config.txt");
-
-            return File.Exists(configFilePath);
         }
     }
 }
