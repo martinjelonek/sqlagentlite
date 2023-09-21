@@ -1,6 +1,7 @@
 using SAL.Commands;
 using SAL.Constants.Messages;
 using SAL.Constants.Values;
+using SAL.Scheduler;
 
 namespace SAL
 {
@@ -22,6 +23,7 @@ namespace SAL
         {
             string? inputText = Console.ReadLine();
             if(inputText is null) return;
+            SchedulerManager.InitializeScheduler();
             inputText = inputText.ToLower();
             
             if(inputText=="help") 
@@ -42,9 +44,17 @@ namespace SAL
                 return;
             }
 
-            //TODO: start scheduler command
+            if(inputText=="start")
+            {
+                StartCommand.Run();
+                return;
+            }
 
-            //TODO: stop scheduler command
+            if(inputText=="stop")
+            {
+                StopCommand.Run();
+                return;
+            }
 
             if(inputText=="set db address")
             {
