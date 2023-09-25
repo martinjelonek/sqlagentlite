@@ -12,6 +12,7 @@ namespace SAL
         {
             InitialPrint();
             Initialize();
+            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
             while(true) ReadInput();
         }
 
@@ -108,7 +109,6 @@ namespace SAL
         {
             Console.WriteLine(Msg.WELCOME_MESSAGE);
             Console.WriteLine(Msg.LIST_OF_COMMANDS);
-            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
     }
 }
