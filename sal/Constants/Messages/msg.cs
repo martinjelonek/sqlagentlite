@@ -27,7 +27,7 @@ namespace SAL.Constants.Messages
         public const string USER_INPUT_MESSAGE = "Please enter a command:";
         public const string WELCOME_MESSAGE = @"
 ***************************
-* SQL AGENT LITE - v. 0.1 *
+* SQL AGENT LITE - v. 1.0 *
 ***************************
 This program executes SQL queries once per day.
 ";
