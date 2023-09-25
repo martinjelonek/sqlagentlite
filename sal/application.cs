@@ -40,7 +40,7 @@ namespace SAL
 
             if(inputText=="execute")
             {
-                ExecuteCommand.Run();
+                ExecuteCommand.Run(true);
                 return;
             }
 

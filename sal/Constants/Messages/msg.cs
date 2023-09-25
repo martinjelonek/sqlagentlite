@@ -61,5 +61,11 @@ List of commands:
             Console.WriteLine(text);
             Console.ResetColor();
         }
+        public static void WriteLineBlue(String text)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
     }
 }

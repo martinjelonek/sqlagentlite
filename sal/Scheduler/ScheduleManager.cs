@@ -1,3 +1,8 @@
+using SAL.Commands;
+using SAL.Config;
+using SAL.Constants.Messages;
+using SAL.Constants.Values;
+
 namespace SAL.Scheduler
 {
     class SchedulerManager
@@ -35,8 +40,34 @@ namespace SAL.Scheduler
         {
             while(true) 
             {
-                if(_keepRunning) Console.WriteLine("Check schedule test...");
                 Thread.Sleep(5000);
+                
+                if(_keepRunning)
+                {
+                    //Check time
+                    string? time = ConfigManager.GetConfigValue(Val.PARAM_NAME_SCHEDULER_TIME);
+                    if(time is null) continue;
+                    if(!DataValidator.IsValidTimeFormat(time)) continue;
+                    TimeSpan scheduleTime = TimeSpan.Parse(time);
+                    if(scheduleTime > DateTime.Now.TimeOfDay)
+                    {
+                        continue;
+                    }
+
+                    //Check day
+                    string? date = ConfigManager.GetConfigValue(Val.PARAM_LAST_SCHEDULE_DATE);
+                    if(date is not null && DataValidator.IsValidDateFormat(date))
+                    {
+                        DateTime lastScheduleDate = DateTime.Parse(date);
+                        if(lastScheduleDate >= DateTime.Now.Date) continue;
+                    }
+
+                    //Execute schedule
+                    ExecuteCommand.Run(false);
+
+                    //Update last schedule date
+                    ConfigManager.AddOrUpdateConfigValue(Val.PARAM_LAST_SCHEDULE_DATE, DateTime.Now.Date.ToString("yyyy-MM-dd"));
+                }
             }
         }
     }
