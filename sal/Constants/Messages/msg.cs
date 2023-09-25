@@ -34,18 +34,19 @@ This program executes SQL queries once per day.
 
         public const string LIST_OF_COMMANDS = @"
 List of commands:
-    help            => display this list of commands
-    show            => show the sql
-    execute         => run the SQL query immediately
-    start           => start the scheduler
-    stop            => stop the scheduler
-    set db address  => specify the database address
-    set db name     => specify the database name
-    set cert trust  => specify whether to trust the server certificate
-    set time        => specify the time to execute the SQL query
-    print config    => display the config file (this file can also be found in the program directory named config.txt)
-    print log       => display the log file (this file can also be found in the program directory named log.txt)
-    exit            => close the application
+    help                => display this list of commands
+    show                => show the sql
+    execute             => run the SQL query immediately
+    start               => start the scheduler
+    stop                => stop the scheduler
+    set db address      => specify the database address
+    set db name         => specify the database name
+    set cert trust      => specify whether to trust the server certificate
+    set time            => specify the time to execute the SQL query
+    toggle autostart    => toggle the scheduler's automatic start with the program
+    print config        => display the config file (this file can also be found in the program directory named config.txt)
+    print log           => display the log file (this file can also be found in the program directory named log.txt)
+    exit                => close the application
 ";
 
         public static void WriteLineRed(String text)

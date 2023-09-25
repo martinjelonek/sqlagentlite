@@ -13,6 +13,7 @@ namespace SAL.Scheduler
         public static bool KeepRunning
         {
             get { return _keepRunning; }
+            set { _keepRunning = value; }
         }
         
         private static Thread schedulerThread = new(CheckSchedule);

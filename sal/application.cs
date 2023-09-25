@@ -1,4 +1,5 @@
 using SAL.Commands;
+using SAL.Config;
 using SAL.Constants.Messages;
 using SAL.Constants.Values;
 using SAL.Scheduler;
@@ -16,14 +17,19 @@ namespace SAL
 
         private static void Initialize()
         {
-            Config.ConfigFile.InitializeConfig();
+            ConfigFile.InitializeConfig();
+            SchedulerManager.InitializeScheduler();
+            if(ConfigManager.GetConfigValue(Val.PARAM_SCHEDULE_AUTORUN)=="on")
+            {
+                SchedulerManager.KeepRunning=true;
+                Msg.WriteLineBlue("The scheduler started automaticlly.");
+            }
         }
 
         private static void ReadInput()
         {
             string? inputText = Console.ReadLine();
             if(inputText is null) return;
-            SchedulerManager.InitializeScheduler();
             inputText = inputText.ToLower();
             
             if(inputText=="help") 
@@ -80,7 +86,11 @@ namespace SAL
                 return;                
             }
 
-            //TODO: print log file command
+            if(inputText=="toggle autostart")
+            {
+                SetScheduleAutostartCommand.Run();
+                return;
+            }
 
             if(inputText=="print config")
             {
