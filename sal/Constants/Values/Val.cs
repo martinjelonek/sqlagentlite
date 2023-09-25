@@ -2,6 +2,8 @@ namespace SAL.Constants.Values
 {
     public static class Val
     {
+        public const string PARAM_SCHEDULE_AUTORUN = "schedule_autostart";
+        public const string PARAM_LAST_SCHEDULE_DATE = "last_schedule_date"; 
         public const string PARAM_NAME_SCHEDULER_TIME = "scheduler_time";
         public const string PARAM_NAME_CERT_TRUST = "cert_trust";
         public const string PARAM_NAME_DB_NAME = "db_name";

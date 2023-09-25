@@ -99,7 +99,7 @@ namespace SAL.Config
                 }
 
                 File.WriteAllLines(ConfigFile.GetConfigFileFullPath(), lines);
-                Console.WriteLine("Done.");
+                Console.WriteLine(Msg.CONFIG_UPDATE_SUCCESS_MESSAGE);
             }
             catch
             {

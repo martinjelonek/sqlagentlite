@@ -2,6 +2,9 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
+        public const string CONFIG_UPDATE_SUCCESS_MESSAGE = "Value updated.";
+        public const string SCHEDULER_TIME_INPUT_MESSAGE = "Please enter a new schedule time (HH:MM format):";
+        public const string SCHEDULER_IS_RUNNING_MESSAGE = "The schedule is running. Stop the schedule first to modify its start time.";
         public const string ADD_LOG_ERROR_WARNING = "Warning: There was an issue accessing the 'log.txt' file. Log entry not added to the file.";
         public const string USER_INPUT_VALUE_SET_MESSAGE = "Please enter a value:";
         public const string NO_VALUE_ENTERED_MESSAGE = "No value entered. Operation aborted.";
@@ -31,18 +34,19 @@ This program executes SQL queries once per day.
 
         public const string LIST_OF_COMMANDS = @"
 List of commands:
-    help            => display this list of commands
-    show            => show the sql
-    execute         => run the SQL query immediately
-    start           => start the scheduler
-    stop            => stop the scheduler
-    set db address  => specify the database address
-    set db name     => specify the database name
-    set cert trust  => specify whether to trust the server certificate
-    set time        => specify the time to execute the SQL query
-    print config    => display the config file (this file can also be found in the program directory named config.txt)
-    print log       => display the log file (this file can also be found in the program directory named log.txt)
-    exit            => close the application
+    help                => display this list of commands
+    show                => show the sql
+    execute             => run the SQL query immediately
+    start               => start the scheduler
+    stop                => stop the scheduler
+    set db address      => specify the database address
+    set db name         => specify the database name
+    set cert trust      => specify whether to trust the server certificate
+    set time            => specify the time to execute the SQL query
+    toggle autostart    => toggle the scheduler's automatic start with the program
+    print config        => display the config file (this file can also be found in the program directory named config.txt)
+    print log           => display the log file (this file can also be found in the program directory named log.txt)
+    exit                => close the application
 ";
 
         public static void WriteLineRed(String text)
@@ -55,6 +59,12 @@ List of commands:
         public static void WriteLineYellow(String text)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
+        public static void WriteLineBlue(String text)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(text);
             Console.ResetColor();
         }

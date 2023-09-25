@@ -1,6 +1,8 @@
 using SAL.Commands;
+using SAL.Config;
 using SAL.Constants.Messages;
 using SAL.Constants.Values;
+using SAL.Scheduler;
 
 namespace SAL
 {
@@ -10,12 +12,19 @@ namespace SAL
         {
             InitialPrint();
             Initialize();
+            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
             while(true) ReadInput();
         }
 
         private static void Initialize()
         {
-            Config.ConfigFile.InitializeConfig();
+            ConfigFile.InitializeConfig();
+            SchedulerManager.InitializeScheduler();
+            if(ConfigManager.GetConfigValue(Val.PARAM_SCHEDULE_AUTORUN)=="on")
+            {
+                SchedulerManager.KeepRunning=true;
+                Msg.WriteLineBlue("The scheduler started automaticlly.");
+            }
         }
 
         private static void ReadInput()
@@ -38,13 +47,21 @@ namespace SAL
 
             if(inputText=="execute")
             {
-                ExecuteCommand.Run();
+                ExecuteCommand.Run(true);
                 return;
             }
 
-            //TODO: start scheduler command
+            if(inputText=="start")
+            {
+                StartCommand.Run();
+                return;
+            }
 
-            //TODO: stop scheduler command
+            if(inputText=="stop")
+            {
+                StopCommand.Run();
+                return;
+            }
 
             if(inputText=="set db address")
             {
@@ -64,9 +81,17 @@ namespace SAL
                 return;
             }
 
-            //TODO: set time command
+            if(inputText=="set time")
+            {
+                SetTimeCommand.Run();
+                return;                
+            }
 
-            //TODO: print log file command
+            if(inputText=="toggle autostart")
+            {
+                SetScheduleAutostartCommand.Run();
+                return;
+            }
 
             if(inputText=="print config")
             {
@@ -84,7 +109,6 @@ namespace SAL
         {
             Console.WriteLine(Msg.WELCOME_MESSAGE);
             Console.WriteLine(Msg.LIST_OF_COMMANDS);
-            Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
     }
 }
