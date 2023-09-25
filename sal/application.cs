@@ -74,7 +74,11 @@ namespace SAL
                 return;
             }
 
-            //TODO: set time command
+            if(inputText=="set time")
+            {
+                SetTimeCommand.Run();
+                return;                
+            }
 
             //TODO: print log file command
 
