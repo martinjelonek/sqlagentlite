@@ -2,6 +2,9 @@ namespace SAL.Constants.Messages
 {
     public static class Msg
     {
+        public const string CONFIG_UPDATE_SUCCESS_MESSAGE = "Value updated.";
+        public const string SCHEDULER_TIME_INPUT_MESSAGE = "Please enter a new schedule time (HH:MM format):";
+        public const string SCHEDULER_IS_RUNNING_MESSAGE = "The schedule is running. Stop the schedule first to modify its start time.";
         public const string ADD_LOG_ERROR_WARNING = "Warning: There was an issue accessing the 'log.txt' file. Log entry not added to the file.";
         public const string USER_INPUT_VALUE_SET_MESSAGE = "Please enter a value:";
         public const string NO_VALUE_ENTERED_MESSAGE = "No value entered. Operation aborted.";

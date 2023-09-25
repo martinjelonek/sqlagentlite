@@ -5,6 +5,10 @@ namespace SAL.Scheduler
         public static bool queryInProgress = false;
         private static bool _keepRunning = false;
         private static bool _schedulerInitialized = false;
+        public static bool KeepRunning
+        {
+            get { return _keepRunning; }
+        }
         
         private static Thread schedulerThread = new(CheckSchedule);
 
