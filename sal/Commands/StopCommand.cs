@@ -8,6 +8,7 @@ namespace SAL.Commands
         public static void Run()
         {
             SchedulerManager.StopScheduler();
+            Msg.WriteLineBlue("The scheduler has been stopped.");
             Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
     }

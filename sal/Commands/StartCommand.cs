@@ -8,6 +8,7 @@ namespace SAL.Commands
         public static void Run()
         {
             SchedulerManager.StartScheduler();
+            Msg.WriteLineBlue("The scheduler has been started.");
             Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
     }
