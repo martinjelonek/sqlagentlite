@@ -26,6 +26,8 @@ namespace SAL.SqlManager
 
                     using (SqlCommand command = new(_sqlQuery, connection))
                     {
+                        command.CommandTimeout = 600;
+
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             // Print headers
