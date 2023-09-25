@@ -37,7 +37,6 @@ namespace SAL.Commands
             }
 
             ConfigManager.AddOrUpdateConfigValue(Val.PARAM_NAME_SCHEDULER_TIME, value);
-            Console.WriteLine(Msg.CONFIG_UPDATE_SUCCESS_MESSAGE);
             Console.WriteLine(Msg.USER_INPUT_MESSAGE);
         }
     }
