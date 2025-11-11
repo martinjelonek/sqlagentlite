@@ -55,14 +55,14 @@ namespace SAL.Config
 
         public static void AddOrUpdateConfigValue(string configName, string value)
         {
-            List<string> lines = new ();
+            List<string> lines = new();
             bool found = false;
 
-            if(!ConfigFile.DoesConfigExist())
+            if (!ConfigFile.DoesConfigExist())
             {
                 Msg.WriteLineYellow(Msg.CONFIG_FILE_NOT_FOUND_AND_VALUE_NOT_ADDED_WARNING);
             }
-            
+
             try
             {
                 lines.AddRange(File.ReadAllLines(ConfigFile.GetConfigFileFullPath()));
@@ -70,7 +70,7 @@ namespace SAL.Config
                 for (int i = 0; i < lines.Count; i++)
                 {
                     string line = lines[i];
-                    
+
                     if (string.IsNullOrWhiteSpace(line))
                     {
                         continue;
@@ -92,7 +92,7 @@ namespace SAL.Config
                         break;
                     }
                 }
-                
+
                 if (!found)
                 {
                     lines.Add($"{configName} = {value}");
@@ -104,6 +104,20 @@ namespace SAL.Config
             catch
             {
                 Msg.WriteLineYellow(Msg.CONFIG_FILE_ERROR_AND_VALUE_NOT_ADDED_WARNING);
+            }
+        }
+
+        public static int? GetConfigValueNumber(string configName)
+        {
+            string? value = null;
+            value = GetConfigValue(configName);
+            if (int.TryParse(value, out int result))
+            {
+                return result;
+            }
+            else
+            {
+                return null;
             }
         }
     }
