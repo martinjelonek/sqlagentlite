@@ -2,6 +2,8 @@ using System.IO.Pipes;
 using Microsoft.Data.SqlClient;
 using SAL.Constants.Messages;
 using SAL.Log;
+using SAL.Config;
+using SAL.Constants.Values;
 
 namespace SAL.SqlManager
 {
@@ -26,7 +28,7 @@ namespace SAL.SqlManager
 
                     using (SqlCommand command = new(_sqlQuery, connection))
                     {
-                        command.CommandTimeout = 600;
+                        command.CommandTimeout = ConfigManager.GetConfigValueNumber(Val.PARAM_NAME_SQL_COMMAND_TIMEOUT) ?? 600;
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
